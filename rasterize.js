@@ -91,8 +91,8 @@ function loadTriangles() {
             for (whichSetTri=0; whichSetTri<inputTriangles[whichSet].triangles.length; whichSetTri++){
                 for (var indx=0; indx<inputTriangles[whichSet].triangles[whichSetTri].length; indx++){
                     triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + whichSet*3);
-                    colors = colors.concat(inputTriangles[whichSet].material.diffuse);
-                    colors = colors.concat([1.0]);
+                    //colors = colors.concat(inputTriangles[whichSet].material.diffuse);
+                    //colors = colors.concat([1.0]);
                 }
             }
 
@@ -102,6 +102,27 @@ function loadTriangles() {
         vertexBuffer = gl.createBuffer(); // init empty vertex coord buffer
         gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer); // activate that buffer
         gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(coordArray),gl.STATIC_DRAW); // coords to that buffer
+
+        colors = [
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+          1.0, 0.0, 0.0, 1.0,
+
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0,
+          1.0, 1.0, 0.0, 1.0,
+
+          0.0, 0.0, 1.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+          0.0, 0.0, 1.0, 1.0
+        ]
 
         triangleBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, triangleBuffer);
