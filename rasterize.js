@@ -80,6 +80,7 @@ function loadTriangles() {
         var triArray = []; // 1D array of triangle vertex indices
         var colors = [] // array to hold all the colors
 
+        numVerts = 0;
         for (var whichSet=0; whichSet<inputTriangles.length; whichSet++) {
 
             // set up the vertex coord array
@@ -90,11 +91,12 @@ function loadTriangles() {
 
             for (whichSetTri=0; whichSetTri<inputTriangles[whichSet].triangles.length; whichSetTri++){
                 for (var indx=0; indx<inputTriangles[whichSet].triangles[whichSetTri].length; indx++){
-                    triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + whichSet*3);
+                    triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + numVerts);
                     //colors = colors.concat(inputTriangles[whichSet].material.diffuse);
                     //colors = colors.concat([1.0]);
                 }
             }
+            numVerts += inputTriangles[whichSet].vertices.length
 
         } // end for each triangle set
         // console.log(coordArray.length);
