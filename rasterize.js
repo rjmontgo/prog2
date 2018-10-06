@@ -79,21 +79,21 @@ function loadTriangles() {
         var coordArray = []; // 1D array of vertex coords for WebGL
         var triArray = []; // 1D array of triangle vertex indices
         var colors = [] // array to hold all the colors
-
         numVerts = 0;
+        
         for (var whichSet=0; whichSet<inputTriangles.length; whichSet++) {
 
             // set up the vertex coord array
             for (whichSetVert=0; whichSetVert<inputTriangles[whichSet].vertices.length; whichSetVert++){
                 coordArray = coordArray.concat(inputTriangles[whichSet].vertices[whichSetVert]);
+                colors = colors.concat(inputTriangles[whichSet].material.diffuse);
+                colors = colors.concat([1.0]);
                 // console.log(inputTriangles[whichSet].vertices[whichSetVert]);
             }
 
             for (whichSetTri=0; whichSetTri<inputTriangles[whichSet].triangles.length; whichSetTri++){
                 for (var indx=0; indx<inputTriangles[whichSet].triangles[whichSetTri].length; indx++){
                     triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + numVerts);
-                    //colors = colors.concat(inputTriangles[whichSet].material.diffuse);
-                    //colors = colors.concat([1.0]);
                 }
             }
             numVerts += inputTriangles[whichSet].vertices.length
@@ -105,21 +105,6 @@ function loadTriangles() {
         gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer); // activate that buffer
         gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(coordArray),gl.STATIC_DRAW); // coords to that buffer
 
-        colors = [
-          1.0, 0.0, 0.0, 1.0,
-          1.0, 0.0, 0.0, 1.0,
-          1.0, 0.0, 0.0, 1.0,
-
-          0.0, 1.0, 0.0, 1.0,
-          0.0, 1.0, 0.0, 1.0,
-          0.0, 1.0, 0.0, 1.0,
-          0.0, 1.0, 0.0, 1.0,
-
-          1.0, 1.0, 0.0, 1.0,
-          1.0, 1.0, 0.0, 1.0,
-          1.0, 1.0, 0.0, 1.0
-        ]
-
         triangleBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, triangleBuffer);
         gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(triArray), gl.STATIC_DRAW);
@@ -129,7 +114,7 @@ function loadTriangles() {
         colorBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
-        // end test color
+        // end test color*/
 
 
     } // end if triangles found
