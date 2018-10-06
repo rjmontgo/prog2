@@ -93,7 +93,6 @@ function loadTriangles() {
                     triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + whichSet*3);
                     //colors = colors.concat(inputTriangles[whichSet].material.diffuse);
                     //colors = colors.concat([1.0]);
-                    //triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx])
                 }
             }
 
@@ -112,14 +111,11 @@ function loadTriangles() {
           0.0, 1.0, 0.0, 1.0,
           0.0, 1.0, 0.0, 1.0,
           0.0, 1.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
 
           1.0, 1.0, 0.0, 1.0,
           1.0, 1.0, 0.0, 1.0,
-          1.0, 1.0, 0.0, 1.0,
-
-          0.0, 0.0, 1.0, 1.0,
-          0.0, 0.0, 1.0, 1.0,
-          0.0, 0.0, 1.0, 1.0
+          1.0, 1.0, 0.0, 1.0
         ]
 
         triangleBuffer = gl.createBuffer();
