@@ -4,8 +4,8 @@
 const WIN_Z = 0;  // default graphics window z coord in world space
 const WIN_LEFT = 0; const WIN_RIGHT = 1;  // default left and right x coords in world space
 const WIN_BOTTOM = 0; const WIN_TOP = 1;  // default top and bottom y coords in world space
-const INPUT_TRIANGLES_URL = "https://ncsucgclass.github.io/prog2/triangles.json"; // triangles file loc
-const INPUT_SPHERES_URL = "https://ncsucgclass.github.io/prog2/spheres.json"; // spheres file loc
+const INPUT_TRIANGLES_URL = "https://rjmontgo.github.io/prog2/triangles.json"; // triangles file loc
+const INPUT_SPHERES_URL = "https://rjmontgo.github.io/prog2/spheres.json"; // spheres file loc
 var Eye = new vec4.fromValues(0.5,0.5,-0.5,1.0); // default eye position in world space
 
 /* webgl globals */
@@ -110,19 +110,6 @@ function loadTriangles() {
 
         // test color
         colorBuffer = gl.createBuffer();
-        /*var colors = [
-            0.6,  0.4,  0.4,  1.0,    // white
-            0.6,  0.4,  0.4,  1.0,    // red
-            0.6,  0.4,  0.4,  1.0,    // green
-
-            0.6,  0.6,  0.4,  1.0,    // triangle 2
-            0.6,  0.6,  0.4,  1.0,
-            0.6,  0.6,  0.4,  1.0,
-
-            0.6,  0.6,  0.4,  1.0,    // triangle 3
-            0.6,  0.6,  0.4,  1.0,
-            0.6,  0.6,  0.4,  1.0,
-        ];*/
         gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
         // end test color
