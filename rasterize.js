@@ -91,9 +91,9 @@ function loadTriangles() {
             var vertIdx = 0;
             for (whichSetTri=0; whichSetTri<inputTriangles[whichSet].triangles.length; whichSetTri++){
                 for (var indx=0; indx<inputTriangles[whichSet].triangles[whichSetTri].length; indx++){
-                    triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + whichSet*3 + vertIdx);
-                    triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + whichSet*3 + vertIdx + 1);
-                    triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + whichSet*3 + vertIdx + 2)
+                    triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + indx*3 + vertIdx);
+                    triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + indx*3 + vertIdx + 1);
+                    triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx] + indx*3 + vertIdx + 2)
                     //colors = colors.concat(inputTriangles[whichSet].material.diffuse);
                     //colors = colors.concat([1.0]);
                     //triArray.push(inputTriangles[whichSet].triangles[whichSetTri][indx])
